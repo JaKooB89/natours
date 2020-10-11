@@ -11,13 +11,17 @@
 
 // MEDIA QUERIES
 
-// MOBILE 0 - 600px
+// MOBILE-SMALL 0 - 320px
+// MOBILE 320px - 600px
 // TABLET-PORTRAIT 600px - 900px
 // TABLET-LANDSCAPE 900px - 1200px
 // LAPTOP 1200px - 1800px
 // DESKTOP 1800px +
 // 1em = 16px
 @mixin media($breakpoint)
+  @if $breakpoint == mobile-sm
+    @media (max-width: 20em) // 320px
+      @content
   @if $breakpoint == mobile
     @media (max-width: 37.5em) // 600px
       @content
