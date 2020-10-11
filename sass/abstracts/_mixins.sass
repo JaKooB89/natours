@@ -28,6 +28,9 @@
   @if $breakpoint == tablet
     @media (max-width: 56.25em) // 900px
       @content
+  @if $breakpoint == no-hover
+    @media (max-width: 56.25em), (hover: none) // No hover input device or tablet size
+      @content
   @if $breakpoint == tablet-lg
     @media (max-width: 75em) // 1200px
       @content

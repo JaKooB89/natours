@@ -55,6 +55,10 @@ body {
     body {
       padding: 0; } }
 
+::selection {
+  background-color: #55c57a;
+  color: #fff; }
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -173,17 +177,6 @@ body {
   @media (max-width: 37.5em) {
     .u-margin-top-huge {
       margin-top: 5rem !important; } }
-
-.preloader {
-  display: none;
-  opacity: 0;
-  z-index: 9999;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: #f7f7f7; }
 
 .btn, .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -352,7 +345,7 @@ body {
   .card__price-value {
     font-size: 6rem;
     font-weight: 100; }
-  @media (max-width: 56.25em) {
+  @media (max-width: 56.25em), (hover: none) {
     .card {
       box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
       height: auto;
@@ -486,10 +479,14 @@ body {
     float: left;
     overflow: hidden;
     background-color: orangered;
-    shape-outside: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
+    border-radius: 50%;
     position: relative; }
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      .story__shape {
+        clip-path: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        border-radius: unset; } }
     @media (max-width: 37.5em) {
       .story__shape {
         transform: translateX(-3rem) skewX(0); } }
@@ -707,6 +704,9 @@ body {
     clear: both; }
   @media (max-width: 56.25em) {
     .row {
+      max-width: 62rem; } }
+  @media (max-width: 37.5em) {
+    .row {
       max-width: 52rem; } }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
@@ -738,21 +738,21 @@ body {
     width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
 
 .header {
-  height: 95vh;
+  height: 85vh;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero-small.jpg");
   background-size: cover;
   background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   position: relative; }
-  @media (min-resolution: 192dpi) and (min-width: 37.5em) {
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-width: 125em) {
     .header {
       background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg"); } }
-  @media (min-width: 125em) {
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
     .header {
-      background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg"); } }
-  @media (max-width: 37.5em) {
-    .header {
-      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); } }
+      height: 95vh;
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); }
+      @media (max-width: 37.5em) {
+        .header {
+          clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); } } }
   .header__logo-box {
     position: absolute;
     top: 4rem;
@@ -942,7 +942,7 @@ body {
   @media (max-width: 56.25em) {
     .section-about {
       padding: 20rem 0; } }
-  @media (max-width: 56.25em) {
+  @media (max-width: 37.5em) {
     .section-about {
       padding: 20rem 0 15rem; } }
 
