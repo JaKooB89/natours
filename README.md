@@ -2,4 +2,4 @@
 
 ### DEMO: https://jakoob89.github.io/natours/
 
-#### npm run compile:sass
+#### Advanced CSS and SASS project #1
